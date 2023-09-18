@@ -46,9 +46,20 @@ def get_guessed_word(secret_word, letters_guessed):
         For letters in the word that the user has not yet guessed, shown an _ (underscore) instead.
     '''
 
-    #TODO: Loop through the letters in secret word and build a string that shows the letters that have been guessed correctly so far that are saved in letters_guessed and underscores for the letters that have not been guessed yet
+    #TODO: Loop through the letters in secret word and build a string that shows the letters
+    #  that have been guessed correctly so far that are saved in letters_guessed 
+    # and underscores for the letters that have not been guessed yet
 
-    pass
+    string_to_return = ''
+    for char in secret_word:
+        if (char in letters_guessed):
+            string_to_return += char
+        else:
+            string_to_return += '_'
+    
+    return string_to_return
+
+   
 
 
 def is_guess_in_word(guess, secret_word):
@@ -93,7 +104,8 @@ def spaceman(secret_word):
         letterGuessed = input("Enter a letter: ")
         if (len(letterGuessed) == 1):
             is_single_letter = True
-            guessedLetters.append(letterGuessed)
+            if (letterGuessed not in guessedLetters):
+                guessedLetters.append(letterGuessed)
     
 
 
@@ -110,7 +122,9 @@ def spaceman(secret_word):
         print("Sorry your guess was not in the word, try again.")
 
     #TODO: show the guessed word so far
-    print(f"Guessed word so far: {test}")
+    guesed_so_far = get_guessed_word(secret_word, "".join(guessedLetters))
+
+    print(f"Guessed word so far: {guesed_so_far}")
 
     #TODO: check if the game has been won or lost
 
