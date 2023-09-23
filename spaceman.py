@@ -123,7 +123,6 @@ def spaceman(secret_word):
               print("You won!!")
               gameRunning = False
 
-
-#These function calls that will start the game
+#Function calls that will start the game
 secret_word = load_word()
 spaceman(secret_word)
